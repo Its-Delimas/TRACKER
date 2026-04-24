@@ -1,11 +1,5 @@
+import Dashboard from './pages/Dashboard.tsx'
 
-export default function Main() {
-
-  return (
-    <>
-      <h2>Hello World</h2>
-
-
-    </>
-  )
+export default function App() {
+  return <Dashboard />
 }
