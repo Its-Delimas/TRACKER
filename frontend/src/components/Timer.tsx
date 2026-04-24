@@ -35,12 +35,12 @@ export default function Timer({ onSave }: TimerProps) {
             <div className={`w-6 h-6 rounded-full mb-12 transition-all duration-500 ${isRunning ? 'bg-green-500 shadow-[0_0_12px_rgba(239,68,68,0.8)] animate-pulse' : 'bg-gray-700'}`} />
 
             <div className='flex items-center gap-3'>
-                <button onClick={start} disabled={isRunning} className='flex items-center gap-2 px-5 py-2.5 rounded-lg bg-red-500 hover:bg-red-400 disabled:opacity-30 disabled:cursor-not-allowed text-white text-sm font-medium transition-all duration-200'>
+                <button onClick={start} disabled={isRunning} className='flex items-center gap-2 px-5 py-2.5 rounded-lg bg-green-500 hover:bg-green-400 disabled:opacity-30 disabled:cursor-not-allowed text-white text-sm font-medium transition-all duration-200'>
                     <Play size={14} />
                     Start
                 </button>
 
-                <button onClick={stop} disabled={!isRunning} className='flex items-center gap-2 px-5 py-2.5 rounded-lg border border-gray-700 hover:border-gray-500 disabled:opacity-30 disabled:cursor-not-allowed text-gray-300 hover:text-white text-sm font-medium transition-all duration-200'>
+                <button onClick={stop} disabled={!isRunning} className='flex items-center gap-2 px-5 py-2.5 rounded-lg border border-gray-700 hover:border-gray-500 disabled:opacity-20 disabled:cursor-not-allowed text-gray-300 hover:text-white text-sm font-medium transition-all duration-200 bg-red-500 hover:bg-red-400'>
                     <Square size={14} />
                     Stop
                 </button>
@@ -49,7 +49,7 @@ export default function Timer({ onSave }: TimerProps) {
                     Reset
                 </button>
 
-                <button onClick={handleSave} disabled={isRunning || seconds === 0} className='flex items-center gap-2 px-5 py-2.5 rounded-lg border border-gray-700 hover:border-gray=500/50 disabled:opacity-30 disabled:cursor-not-allowed texxt-gray-300 hover:text-red-400 text-sm font-medium transition-all duration-200'>
+                <button onClick={handleSave} disabled={isRunning || seconds === 0} className='flex items-center gap-2 px-5 py-2.5 rounded-lg border border-gray-700 hover:border-gray=500/50 text-gray-500 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed texxt-gray-300 hover:text-red-400 text-sm font-medium transition-all duration-200'>
                     <Save size={14} />
                     Save
                 </button>
