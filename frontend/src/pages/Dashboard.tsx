@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Timer from '../components/Timer'
 import SessionList from '../components/SessionList'
 import Navbar from '../components/Navbar'
+import { Flame, Clock } from 'lucide-react'
 
 interface Session {
     duration: number
@@ -56,12 +57,36 @@ export default function Dashboard() {
     }
 
     return (
-        <div>
+        <div className='min-h-screen bg-gray-900'>
             <Navbar />
-            <Timer onSave={handleSave} />
-            <p>Total Today: {getDailyTotal()}</p>
-            <p>Streak: {getStreak()} days</p>
-            <SessionList sessions={sessions} />
+            <div className='w-full px-12'>
+                <Timer onSave={handleSave} />
+
+                <div className='grid grid-cols-2 gap-4 mb-12'>
+
+                    <div className='relative rounded-xl border border-gray-700/50 bg-gray-800/30 backdrop-blur-sm p-6 overflow-hidden'>
+                        <div className='absolute inset-0 rounded-xl ring-1 ring-inset ring-white/5' />
+                        <div className='flex items-center gap-2 mb-4'>
+                            <Clock size={14} className='text-red-500' />
+                            <span className='text-gray-500 text-xs tracking-widest uppercase'>Today</span>
+                        </div>
+                        <p className='text-white text-4xl font-semibold tracking-tight' style={{ fontFamily: 'JetBrains Mono, monospace' }}>{getDailyTotal()}</p>
+                        <p className="text-gray-600 text-xs mt-1">Total focus time</p>
+                    </div>
+
+                    <div className='relative rounded-xl border border-gray-700/50 bg-gray-800/30 backdrop-blur-sm p-6 overflow-hidden'>
+                        <div className='absolute inset-0 rounded-xl ring-1 ring-inset ring-white/5' />
+                        <div className='flex items-center gap-2 mb-4'>
+                            <Flame size={14} className='text-red-500' />
+                            <span className='text-gray-500 text-xs tracking-widest uppercase'>Streak</span>
+                        </div>
+                        <p className='text-white text-4xl font-semibold tracking-tight' style={{ fontFamily: 'JetBrains Mono, monospace' }}>{getStreak()}</p>
+                        <p className='text-gray-600 text-xs mt-1'>consecutive days</p>
+                    </div>
+                </div>
+                <SessionList sessions={sessions} />
+            </div>
+
         </div>
     )
 }
