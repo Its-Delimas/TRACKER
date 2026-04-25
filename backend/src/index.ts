@@ -2,6 +2,8 @@ import express from 'express'
 import mongoose from 'mongoose'
 import cors from 'cors'
 import dotenv from 'dotenv'
+import authRoutes from './routes/authRoutes'
+import sessionRoutes from './routes/sessionRoutes'
 
 dotenv.config()
 
@@ -12,7 +14,11 @@ app.use(cors({
     origin:"https://localhost:5173",
     credentials: true
 }))
+
 app.use(express.json())
+
+app.use('/api/auth',authRoutes)
+app.use('/api/sessions',sessionRoutes)
 
 app.get('/',(req,res)=>{
     res.json({message:"Dev Tracker API Running"})
