@@ -12,9 +12,9 @@ interface Session {
 
 interface DashboardProps {
     onLogout: () => void
+    email?: string
 }
-
-export default function Dashboard({ onLogout }: DashboardProps) {
+export default function Dashboard({ onLogout, email }: DashboardProps) {
     const [sessions, setSessions] = useState<Session[]>([])
     const [loading, setLoading] = useState(true)
 
@@ -71,7 +71,7 @@ export default function Dashboard({ onLogout }: DashboardProps) {
 
     return (
         <div className='min-h-screen bg-gray-900'>
-            <Navbar onLogout={onLogout} />
+            <Navbar onLogout={onLogout} email={email} />
             <div className='w-full px-12'>
                 <Timer onSave={handleSave} />
 

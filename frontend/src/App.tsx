@@ -7,6 +7,17 @@ type View = 'login' | 'register' | 'dashboard'
 
 export default function App() {
   const [view, setView] = useState<View>('login')
+  const [email, setEmail] = useState<string>('')
+
+  const handleLogin = (userEmail: string) => {
+    setEmail(userEmail)
+    setView('dashboard')
+  }
+
+  const handleRegister = (userEmail: string) => {
+    setEmail(userEmail)
+    setView('dashboard')
+  }
 
   useEffect(() => {
     const token = localStorage.getItem('token')
@@ -15,8 +26,7 @@ export default function App() {
     }
   }, [])
 
-  const handleLogin = () => setView('dashboard')
-  const handleregister = () => setView('dashboard')
+
   const handleLogout = () => {
     localStorage.removeItem('token')
     localStorage.removeItem('userId')
@@ -30,9 +40,9 @@ export default function App() {
 
   if (view === 'register') {
     return (
-      <Register onRegister={handleregister} onSwitch={() => setView('login')} />
+      <Register onRegister={handleRegister} onSwitch={() => setView('login')} />
     )
   }
 
-  return <Dashboard onLogout={handleLogout} />
+  return <Dashboard onLogout={handleLogout} email={email} />
 }
