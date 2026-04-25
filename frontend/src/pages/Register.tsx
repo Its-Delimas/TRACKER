@@ -46,12 +46,12 @@ export default function Register({ onRegister, onSwitch }: RegisterProps) {
         <div className='min-h-screen bg-gray-900 flex items-center justify-center px-4'>
             <div className='w-full max-w-sm'>
 
-                <div className='flex item-center justify-center gap-2 mb-10'>
+                {/* <div className='flex item-center justify-center gap-2 mb-10'>
                     <div className='w-2 h-2 rounded-full bg-green-500' />
                     <span className='text-white font-semibold text-sm tracking-tight'>
                         itracker
                     </span>
-                </div>
+                </div> */}
 
                 <div className='relative rounded-xl border border-gray-700/50 bg-gray-800/30 backdrop-blur-sm p-8'>
                     <div className='abolute inset-0 rounded-xl ring-1 ring-inset ring-white/5' />

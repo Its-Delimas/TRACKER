@@ -1,6 +1,10 @@
-import { Terminal } from 'lucide-react'
+import { Terminal, LogOut } from 'lucide-react'
 
-export default function Navbar() {
+interface navbareProps {
+    onLogout: () => void
+}
+
+export default function Navbar({ onLogout }: NavbarProps) {
     return (
         <nav className="w-full px-12 py-4 flex items-center justify-between border-b border-gray-800/80 bg-gray-900/80 backdrop-blur-md sticky top-0 z-50">
 
@@ -13,12 +17,15 @@ export default function Navbar() {
                 </span>
             </div>
 
-            <div className="flex items-center gap-2 bg-gray-800/60 border border-gray-700/50 rounded-full px-3 py-1">
+            {/* <div className="flex items-center gap-2 bg-gray-800/60 border border-gray-700/50 rounded-full px-3 py-1">
                 <div className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
                 <span className="text-gray-400 text-xs tracking-widest uppercase">
                     Phase 1
                 </span>
-            </div>
+            </div> */}
+            <button onClick={onLogout} className='flex items-center gap-2 text-gray-500 hover:text-white text-xs transition-colors duration-200'>
+                <LogOut size={13} />
+            </button>
 
         </nav>
     )

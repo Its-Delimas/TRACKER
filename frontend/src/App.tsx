@@ -1,5 +1,38 @@
+import { useState, useEffect } from 'react'
 import Dashboard from './pages/Dashboard.tsx'
+import Login from './pages/Login.tsx'
+import Register from './pages/Register.tsx'
+
+type View = 'login' | 'register' | 'dashboard'
 
 export default function App() {
-  return <Dashboard />
+  const [view, setView] = useState<View>('login')
+
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (token) {
+      setView('dashboard')
+    }
+  }, [])
+
+  const handleLogin = () => setView('dashboard')
+  const handleregister = () => setView('dashboard')
+  const handleLogout = () => {
+    localStorage.removeItem('token')
+    localStorage.removeItem('userId')
+    setView('login')
+  }
+  if (view === 'login') {
+    return (
+      <Login onLogin={handleLogin} onSwitch={() => setView('register')} />
+    )
+  }
+
+  if (view === 'register') {
+    return (
+      <Register onRegister={handleregister} onSwitch={() => setView('login')} />
+    )
+  }
+
+  return <Dashboard onLogout={handleLogout} />
 }
