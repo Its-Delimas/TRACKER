@@ -49,7 +49,7 @@ export default function Timer({ onSave }: TimerProps) {
                     Reset
                 </button>
 
-                <button onClick={handleSave} disabled={isRunning || seconds === 0} className='flex items-center gap-2 px-5 py-2.5 rounded-lg border border-gray-700 hover:border-gray=500/50 text-gray-500 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed texxt-gray-300 hover:text-red-400 text-sm font-medium transition-all duration-200'>
+                <button onClick={handleSave} disabled={isRunning || seconds === 0} className='flex items-center gap-2 px-5 py-2.5 rounded-lg border border-gray-700 hover:border-gray-500/50 text-gray-300 disabled:opacity-30 disabled:cursor-not-allowed hover:text-red-400 text-sm font-medium transition-all duration-200'>
                     <Save size={14} />
                     Save
                 </button>
